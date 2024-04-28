@@ -1,0 +1,12 @@
+3) Si tengo una lista con N cantidad de elementos y la estaba ordenando con un 
+   algoritmo de complejidad O(n^2). Mañana tendrá N+1 elemento y tengo la 
+   posibilidad de aplicar un algoritmo de ordenación de complejidad O(n):
+   ¿me conviene cambiar el tipo de algortimo o sigo con el que estaba?
+
+Si tienes una lista con N elementos y la estabas ordenando utilizando un algoritmo de complejidad O(n^2), pero al día siguiente tendrás N+1 elementos y tienes la opción de aplicar un algoritmo de ordenación con complejidad O(n), te conviene cambiar el tipo de algoritmo.
+
+El algoritmo de complejidad O(n^2) tiene un peor rendimiento en términos de tiempo de ejecución en comparación con el algoritmo de complejidad O(n). A medida que el tamaño de la lista aumenta, el algoritmo de complejidad O(n^2) requerirá más tiempo para ordenar la lista en comparación con el algoritmo de complejidad O(n).
+
+Dado que la nueva lista tendrá un elemento adicional, el algoritmo de complejidad O(n^2) se volverá aún más lento en comparación con el algoritmo de complejidad O(n). Por lo tanto, sería beneficioso cambiar al algoritmo de complejidad O(n) para aprovechar su mejor rendimiento.
+
+Sin embargo, ten en cuenta que cambiar el algoritmo puede requerir modificaciones en tu código actual. Asegúrate de revisar y ajustar tu implementación de acuerdo con el nuevo algoritmo de ordenación para garantizar un funcionamiento correcto.

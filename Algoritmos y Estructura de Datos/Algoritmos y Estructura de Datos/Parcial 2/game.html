@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adivina el número</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Adivina el número</h1>
+  <p>Estoy pensando en un número del 1 al 100. ¿Puedes adivinar cuál es?</p>
+  <input type="number" id="guessInput">
+  <button onclick="checkGuess()">Adivinar</button>
+  <p id="result"></p>
+
+  <script>
+    var randomNumber = Math.floor(Math.random() * 100) + 1;
+    var guessCount = 0;
+
+    function checkGuess() {
+      var guess = parseInt(document.getElementById('guessInput').value);
+      guessCount++;
+      var result = document.getElementById('result');
+
+      if (guess === randomNumber) {
+        result.innerHTML = '¡Felicitaciones! ¡Adivinaste el número en ' + guessCount + ' intentos!';
+        result.style.color = 'green';
+        disableInput();
+      } else if (guess < randomNumber) {
+        result.innerHTML = 'El número que estoy pensando es mayor que ' + guess + '.';
+        result.style.color = 'red';
+      } else if (guess > randomNumber) {
+        result.innerHTML = 'El número que estoy pensando es menor que ' + guess + '.';
+        result.style.color = 'red';
+      }
+    }
+
+    function disableInput() {
+      document.getElementById('guessInput').disabled = true;
+      document.getElementsByTagName('button')[0].disabled = true;
+    }
+  </script>
+</body>
+</html>

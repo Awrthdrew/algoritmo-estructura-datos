@@ -1,0 +1,8 @@
+Reporte del histórico de consumo eléctrico de un país seleccionado:
+Mostrar un listado de Países
+Pedir por teclado que ingrese el ID de país deseado
+Mostrar el consumo eléctrico del país seleccionado desde 1970
+Armar el título de reporte con data["body"]["metadata"]["indicator_name"] + el nombre del país
+Listado de año y su consumo
+Al final mostrar un promedio de consumo total
+¿En que año fue el máximo consumo de cada país?

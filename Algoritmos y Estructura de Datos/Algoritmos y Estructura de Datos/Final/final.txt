@@ -1,0 +1,86 @@
+class Client:
+	def __init__ (self, i, n):
+		self.id = i
+		self.name = n
+		self.left = None
+		self.right = None
+raiz = Client(1, "Juan")
+raiz.left = Client(2, "Maria")
+raiz.left.left = Client(9, "Norma")
+raiz.left.left.left = Client(8, "Silvina")
+raiz.left.right = Client(5, "Karina")
+raiz.right = Client(6, "Diego")
+raiz.right.left = Client(4, "Ivana")
+raiz.right.right = Client(3, "Carlos")
+raiz.right.right.right = Client(7, "Ariel")
+
+# 1) Función recursiva para imprimir los nombres en orden alfabético descendente:
+def imprimir_nombres_descendente(nodo):
+    if nodo is None:
+        return
+    
+    # Recorrer primero el subárbol derecho
+    imprimir_nombres_descendente(nodo.right)
+    
+    # Imprimir el nombre del nodo actual
+    print(nodo.name)
+    
+    # Recorrer el subárbol izquierdo
+    imprimir_nombres_descendente(nodo.left)
+
+# Puedes llamar a esta función pasando el nodo raíz del árbol como parámetro:
+imprimir_nombres_descendente(raiz)
+
+# 2) Función para buscar un nombre en el árbol y devolver el objeto "Cliente" correspondiente:
+def buscar_nombre(nodo, nombre):
+    if nodo is None:
+        return None
+    
+    if nodo.name == nombre:
+        return nodo
+    
+    # Buscar en el subárbol izquierdo si el nombre es menor
+    if nombre < nodo.name:
+        return buscar_nombre(nodo.left, nombre)
+    
+    # Buscar en el subárbol derecho si el nombre es mayor
+    if nombre > nodo.name:
+        return buscar_nombre(nodo.right, nombre)
+
+# Puedes llamar a esta función pasando el nodo raíz del árbol y el nombre a buscar:
+nombre_buscado = "Maria"
+resultado = buscar_nombre(raiz, nombre_buscado)
+
+if resultado is not None:
+    print("Cliente", nombre_buscado, "encontrado:", resultado.name)
+else:
+    print("Cliente no encontrado")
+
+# 3) Crear una lista a partir de la tabla y ordenarla por nombre utilizando el método de burbuja:
+# Crear una lista de tuplas (id, nombre) a partir de la tabla
+tabla = [
+    (1, "Juan"),
+    (2, "Maria"),
+    (3, "Carlos"),
+    (4, "Ivana"),
+    (5, "Karina"),
+    (6, "Diego"),
+    (7, "Ariel"),
+    (8, "Silvana"),
+    (9, "Norma")
+]
+
+def ordenar_por_nombre(lista):
+    n = len(lista)
+    
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if lista[j][1] > lista[j+1][1]:
+                lista[j], lista[j+1] = lista[j+1], lista[j]
+
+# Llamar a la función para ordenar la lista
+ordenar_por_nombre(tabla)
+print("Ordenacion ascendente por nombre: ")
+# Imprimir la lista ordenada
+for cliente in tabla:
+    print("Nombre:", cliente[1], "- ID:", cliente[0])

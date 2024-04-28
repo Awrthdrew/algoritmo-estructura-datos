@@ -1,0 +1,65 @@
+Claro, con gusto.
+
+arduino
+Copy code
+import datos
+Esta línea importa el módulo datos, que contiene los datos sobre las estaciones meteorológicas.
+
+python
+Copy code
+def mediaValores(valores:dict):
+    i=0
+    total=0
+    for k,v in valores.items():
+        if v!=None:
+            total+=v
+        i+=1
+    return total/i
+Esta función calcula la media de los valores en un diccionario valores, que se supone que tiene valores numéricos en cada clave. La función itera sobre cada clave-valor en valores, sumando los valores que no son None y contando cuántos valores hay. Finalmente, se devuelve la suma dividida por la cantidad de valores.
+
+python
+Copy code
+def maxValorMes(medicoes:dict):
+    max=0;
+    nome=""
+    for k,v in medicoes.items():
+        if v!=None and v>max:
+            max=v
+            nome=k
+    return [nome,max]
+Esta función busca el mes con el valor más alto en un diccionario medicoes, que se supone que tiene valores numéricos en cada clave, que representa los meses. La función itera sobre cada clave-valor en medicoes, buscando el valor más alto y registrando el nombre del mes correspondiente. Finalmente, devuelve una lista con el nombre del mes y su valor más alto.
+
+makefile
+Copy code
+estadisticas = datos.estadisticas
+Esta línea define una variable estadisticas que contiene los datos del módulo datos, que se supone que es una lista de diccionarios. Cada diccionario representa una estación meteorológica y tiene claves para la temperatura media, la temperatura máxima, la temperatura mínima, la humedad relativa, la velocidad del viento, la nubosidad total, la precipitación y la frecuencia de días con precipitación superior a 0.1 mm.
+
+arduino
+Copy code
+def preguntaTres():
+    estacao: dict
+    nome_estacion_major_humidad = ""
+    nome_estacion_major_precipitacion=""
+    mes_valor_major_humedad = ["",0]
+    mes_valor_major_precipitacion= ["",0]
+Esta función busca la estación y el mes con la mayor humedad relativa y precipitación. nome_estacion_major_humidad y nome_estacion_major_precipitacion son variables para almacenar el nombre de la estación con la humedad y precipitación más altas, respectivamente. mes_valor_major_humedad y mes_valor_major_precipitacion son listas para almacenar el nombre del mes y su valor más alto de humedad y precipitación, respectivamente.
+
+less
+Copy code
+    for estacion in estadisticas:
+        nome_estacion_humedad=""
+        nome_estacion_precipitacion=""
+        mes_valor_humedad=["",0]
+        mes_valor_precipitacion=["",0]
+
+        indice_values = 0
+        for v in estacion.values():
+            #Nombre de la Estación
+            if indice_values==0:
+                nome_estacion_precipitacion = v
+                nome_estacion_humedad = v
+
+            # Humedad relativa (%)  indice_values=4
+            if indice_values==4:
+                mes_valor_humedad = maxValorMes(v)
+                if mes_valor_humedad[1] != None and mes_valor_humedad[1] > mes_valor_major_humedad[

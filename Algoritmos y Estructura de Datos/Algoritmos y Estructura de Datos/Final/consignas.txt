@@ -1,0 +1,42 @@
+"""
+se tiene la siguiente tabla de "clientes" en la base de datos
+
+id (pk) | nombre (con indice BTREE)
+-----------------------------------
+1	| Juan
+2	| Maria
+3	| Carlos
+4	| Ivana
+5	| Karina 
+6	| Diego
+7	| Ariel
+8	| Silvana
+9	| Norma
+
+1) Arbol binario: el campo nombre la SGBD lo tiene armado como indice BTREE de la siguiente manera:
+
+"""
+class Client:
+	def __init__ (self, i, n):
+		self.id = i
+		self.name = n
+		self.left = None
+		self.right = None
+raiz = Client(1, "Juan")
+raiz.left = Client(2, "Maria")
+raiz.left.left = Client(9, "Norma")
+raiz.left.left.left = Client(8, "Silvina")
+raiz.left.right = Client(5, "Karina")
+raiz.right = Client(6, "Diego")
+raiz.right.left = Client(4, "Ivana")
+raiz.right.right = Client(3, "Carlos")
+raiz.right.right.right = Client(7, "Ariel")
+
+"""
+desarrolla una funcion recursiva que recorra el arbol e imprima los nombres en orden alfabetico descendente. Nota: no usar metodos de ordenacion ni modificar el arbol.
+
+2) Con el mismo arbol BTREE de la base de datos del campo "nombre" desarrolla una funcion que reciba por parametro el string que sera el nombre a buscar en el arbol. Si existe, que devuelva dicho objeto "Cliente" sino un None.
+
+3) Utilizando la informacion de la tabla, pasarla a una lista de python y desarrollar una funcion que la ordene por nombre ascendente utilizando el metodo de burbuja.
+mostrar el nombre y su correspondiente id luego de ordenar.
+"""

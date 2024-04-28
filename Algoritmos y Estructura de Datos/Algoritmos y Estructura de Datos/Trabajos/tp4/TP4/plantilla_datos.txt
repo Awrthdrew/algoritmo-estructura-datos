@@ -1,0 +1,4 @@
+# Datos de la provincia de Buenos Aires
+viviendas_cordoba = [Vivienda(total_viviendas, poblacion_total_provincia, poblacion_masculina_total_provincia, poblacion_masculina_total_provincia, viviendas_sin_retrete)]
+alfabetismo_cordoba = Alfabetismo(total_varones_provincia, total_mujeres_provincia, total_varones_analfabetos_provincia, total_mujeres_analfabetas_provincia)
+provincia_nombre = Provincia("AR-(inicial_provincia)", "provincia_nombre", viviendas_provincia_nombre, alfabetismo_provincia_nombre)

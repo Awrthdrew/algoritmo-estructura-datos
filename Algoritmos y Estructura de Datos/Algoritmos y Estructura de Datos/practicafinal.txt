@@ -1,0 +1,13 @@
+abraham + agar + sara
+	   V      V
+	ismael	isaac + rebeca
+		      V
+		esau	jacob + lea  +  zilpa  +  raquel  +    bilha
+				 V	  V	    V	         V
+ruben simon levi juda isacar zabulon  gad aser  jose benjamin  dan neftali
+						 V + asenat
+					 manases efrain
+
+1) Realizar una estructura de datos para representar el árbol genealógico de Abraham utilizando técnicas de POO, árboles y arrays.
+2) Recorrer el árbol genealógico de forma recursiva e ir mostrando a sus miembros por pantalla de forma clara y ordenada usando sangrías.
+3) Sacar un listado de todos los nombres ordenados alfabéticamente de forma ascendente. Utilice la estructura del árbol como fuente de datos a procesar. En el proceso debe estar el algoritmo de ordenación llamado “Burbuja”. Se puede hacer uso de variables globales.

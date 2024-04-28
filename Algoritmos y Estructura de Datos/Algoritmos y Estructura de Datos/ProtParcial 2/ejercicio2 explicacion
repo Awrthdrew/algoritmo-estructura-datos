@@ -1,0 +1,70 @@
+# 2.1
+class Comuna:
+    def __init__(self, nombre):
+        self.nombre = nombre
+```
+En esta sección, se define la clase `Comuna`. Tiene un constructor (`__init__`) que inicializa la instancia de `Comuna` con un atributo `nombre`.
+
+```python
+class Region:
+    def __init__(self, nombre, comunas):
+        self.nombre = nombre
+        self.comunas = comunas
+```
+Aquí se define la clase `Region`. Al igual que `Comuna`, tiene un constructor que inicializa la instancia de `Region` con un atributo `nombre` y un atributo `comunas` que es una lista de objetos `Comuna`.
+
+```python
+class Pais:
+    def __init__(self, nombre, regiones):
+        self.nombre = nombre
+        self.regiones = regiones
+```
+La clase `Pais` se define a continuación. Su constructor inicializa la instancia de `Pais` con un atributo `nombre` y un atributo `regiones`, que es una lista de objetos `Region`.
+
+```python
+class Mundo:
+    def __init__(self, paises):
+        self.paises = paises
+```
+En esta sección, se define la clase `Mundo`. Su constructor inicializa la instancia de `Mundo` con un atributo `paises`, que es una lista de objetos `Pais`.
+
+```python
+# Crear comunas
+comuna1 = Comuna("Comuna 1")
+comuna2 = Comuna("Comuna 2")
+```
+Aquí se crean dos instancias de la clase `Comuna` llamadas `comuna1` y `comuna2` con nombres específicos.
+
+```python
+# Crear regiones con comunas
+region1 = Region("Región 1", [comuna1])
+region2 = Region("Región 2", [comuna2])
+```
+Se crean dos instancias de la clase `Region` llamadas `region1` y `region2`. Cada una tiene un nombre específico y una lista de comunas asociadas.
+
+```python
+# Crear país con regiones
+pais1 = Pais("País 1", [region1, region2])
+```
+Aquí se crea una instancia de la clase `Pais` llamada `pais1` con un nombre específico y una lista de regiones asociadas.
+
+```python
+# Crear país con al menos 4 regiones
+region3 = Region("Región 3", [])
+region4 = Region("Región 4", [])
+region5 = Region("Región 5", [])
+region6 = Region("Región 6", [])
+
+pais2 = Pais("País 2", [region3, region4, region5, region6])
+```
+Se crean cuatro instancias adicionales de la clase `Region` llamadas `region3`, `region4`, `region5` y `region6`, sin comunas asociadas. Luego, se crea una instancia de la clase `Pais` llamada `pais2` con un nombre específico y la lista de regiones creadas anteriormente.
+
+```python
+# Crear mundo con 3 países
+mundo = Mundo([pais1, pais2])
+```
+Se crea una instancia de la clase `Mundo` llamada `mundo` con una lista de los dos países creados previamente.
+
+```python
+# Acceder a los datos del mundo
+for pais in mundo.paises:

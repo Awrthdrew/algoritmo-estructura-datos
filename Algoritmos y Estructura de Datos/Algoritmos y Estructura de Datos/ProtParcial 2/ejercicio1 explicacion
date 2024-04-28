@@ -1,0 +1,45 @@
+class Receta:
+    def __init__(self, nombre, tiempo, costo, complejidad, porciones):
+        self.nombre = nombre
+        self.tiempo = tiempo
+        self.costo = costo
+        self.complejidad = complejidad
+        self.porciones = porciones
+
+    def __repr__(self):
+        return f"Receta: {self.nombre} - Costo por porción: ${self.costo_por_porcion()}"
+
+    def costo_por_porcion(self):
+        return self.costo / self.porciones
+```
+
+En estas líneas, definimos la clase `Receta` que representa cada receta. La clase tiene un método constructor `__init__` que se llama al crear una nueva instancia de la clase. El constructor recibe los parámetros `nombre`, `tiempo`, `costo`, `complejidad` y `porciones`, y asigna esos valores a los atributos correspondientes de la instancia.
+
+La clase también tiene un método `__repr__`, que se utiliza para representar la instancia de la clase como una cadena de texto cuando se imprime. En este caso, devuelve una cadena que muestra el nombre de la receta y su costo por porción, utilizando el método `costo_por_porcion()`.
+
+El método `costo_por_porcion` calcula el costo por porción de la receta dividiendo el costo total entre la cantidad de porciones.
+
+```python
+def ordenar_recetas_por_costo_por_porcion(recetas):
+    for i in range(1, len(recetas)):
+        actual = recetas[i]
+        j = i - 1
+        while j >= 0 and actual.costo_por_porcion() < recetas[j].costo_por_porcion():
+            recetas[j + 1] = recetas[j]
+            j -= 1
+        recetas[j + 1] = actual
+```
+
+En estas líneas, definimos la función `ordenar_recetas_por_costo_por_porcion` que toma una lista de recetas como parámetro y las ordena por su costo por porción utilizando el algoritmo de ordenación por inserción.
+
+El bucle `for` recorre la lista de recetas desde el segundo elemento hasta el último. En cada iteración, el elemento actual se guarda en la variable `actual`.
+
+Luego, se inicia un bucle `while` que compara el costo por porción de la receta actual con las recetas anteriores en la lista. Mientras el índice `j` sea mayor o igual a cero y el costo por porción de la receta actual sea menor al costo por porción de la receta en la posición `j`, se desplazan las recetas hacia la derecha para dejar espacio para insertar la receta actual en la posición correcta.
+
+Después de que el bucle `while` termina, se coloca la receta actual en la posición `j + 1`, ya que `j` se ha decrementado en una unidad durante el bucle.
+
+```python
+receta1 = Receta("Pizza", 30, 500, "media", 4)
+receta2 = Receta("Guiso Lentejas", 120, 900, "alta", 6)
+receta3 = Receta("Empanadas", 60, 740, "media", 4)
+receta4 = Receta("Milanesa con puré", 30, 800, "

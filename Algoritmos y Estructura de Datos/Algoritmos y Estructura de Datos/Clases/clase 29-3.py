@@ -1,0 +1,3 @@
+texto =  "problem"
+dir(texto)
+
