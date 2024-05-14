@@ -40,12 +40,14 @@ def cola_super(num_cajas):
     espera_min = 5
     espera_max = 15
     clientes_perdidos = 0
+    clientes_atendidos = 0
+    tiempo_total_cajas = 0
 
     cajas = [[] for _ in range(num_cajas)]
     caja_vacia = True  
 
     for minuto in range(jornada):
-        if r.random() < 1/10:  
+        if r.random() < 1/10 :  
             caja_vacia = False
             caja_index = False
             for i in range(len(cajas)):
@@ -60,23 +62,36 @@ def cola_super(num_cajas):
                 tiempo_espera = r.randint(espera_min, espera_max)
                 if tiempo_espera >= jornada - minuto:  
                     clientes_perdidos += 1
-                """else:
+                else:
                     caja_menos_tiempo = min(cajas, key=lambda caja: sum(caja)) 
                     tiempo_atencion = r.randint(atencion_min, atencion_max)
-                    caja_menos_tiempo.append(tiempo_atencion)"""
+                    caja_menos_tiempo.append(tiempo_atencion)
         for caja in cajas:
             if caja:
                 caja[0] -= 1
                 if caja[0] == 0:  
+                    tiempo_total_cajas += sum(caja)
                     caja.pop(0)
-    return clientes_perdidos
+                    clientes_atendidos += 1
+    return clientes_perdidos, clientes_atendidos, tiempo_total_cajas
 
-num_cajas = 5
-clientes_perdidos = cola_super(num_cajas)
+num_cajas = 1
+clientes_perdidos, clientes_atendidos, tiempo_total_cajas = cola_super(num_cajas)
 
+print()
+print(f"    COLA SUPERMERCADO TRABAJO PRÁCTICO")
+print("#------------------------------------------#")
+print(f"Cantidad de cajas: {num_cajas}")
+print(f"Cantidad de personas que se atendieron: {clientes_atendidos}")
+print(f"Promedio de tiempo en caja: {tiempo_total_cajas % clientes_atendidos} minutos")
+print("#------------------------------------------#")
+
+print("\nSITUACIÓN DE CLIENTES PERDIDOS")
+print("#---------------------------------------------------------------#")
 if clientes_perdidos == 0:
-    print(f"\nGRAN TRABAJO! La cola del supermercado no perdió ningún cliente.")
+    print(f"GRAN TRABAJO! La cola del supermercado no perdió ningún cliente.")
 elif clientes_perdidos == 1:
-    print(f"\nPor causa de la demora en la cola del supermercado, se perdió: {clientes_perdidos} cliente.")
+    print(f"Por causa de la demora en la cola del supermercado, se perdió: {clientes_perdidos} cliente.")
 else:
-    print(f"\nPor causa de la demora en la cola del supermercado, se perdieron: {clientes_perdidos} clientes.")
+    print(f"Por causa de la demora en la cola del supermercado, se perdieron: {clientes_perdidos} clientes.")
+print("#---------------------------------------------------------------#")

@@ -1,4 +1,4 @@
-#from localidades import data
+from localidades import data
 from provincias import data_prov
 
 
@@ -43,7 +43,7 @@ for mi_localidad in data["localidades"]:
         
         
 #Listar todas las provincias con la cantidad de localidades que tiene cada una.
-"""provincias = {}
+provincias = {}
 
 for localidad in data["localidades"]:
     if localidad["provincia"]["nombre"] not in provincias:
@@ -55,7 +55,7 @@ for localidad in data["localidades"]:
 sorted_provincias = sorted(provincias.items(), key=lambda tupla: tupla[1], reverse=True)
 
 for provincia, num_localidades in sorted_provincias:
-    print(f"Provincia: {provincia} | N° de Localidades: {num_localidades}")"""
+    print(f"Provincia: {provincia} | N° de Localidades: {num_localidades}")
     
 
 #Listar todas las localidades por al sur de la latitud -31.
@@ -93,7 +93,7 @@ la matriz del mismo."""
 print(f'La estructura del árbol es: \n {arbol_json(data, 5)}')"""
             
 #Esta función imprime el contenido de los datos de provincia con su estructura.
-def arbol_json(estructura, identacion:int):
+"""def arbol_json(estructura, identacion:int):
     for key in estructura:
         print("   " * identacion + str(key) + ":" + str((estructura[key])))
         
@@ -117,4 +117,4 @@ def arbol_json(estructura, identacion:int):
                 print(" ")
                 arbol_json(item, identacion + 1)
             
-arbol_json(data_prov, 5)
+arbol_json(data_prov, 5)"""
