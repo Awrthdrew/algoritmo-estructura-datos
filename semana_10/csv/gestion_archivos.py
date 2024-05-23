@@ -65,6 +65,8 @@ with open(r'A:\Documents SSD\UAP\2° AÑO\algoritmo-estructura-datos\semana_10\l
             continue
         
 with open(r'A:\Documents SSD\UAP\2° AÑO\algoritmo-estructura-datos\semana_10\csv\Provincias.dump.json', 'w', encoding='utf8', newline="\n") as file:
+    provincias.sort()
     json.dump(provincias, file, indent = 4, ensure_ascii= False)
-    #file.write(json.dumps(provincias, indent = 4, ensure_ascii= False)) #HAY DOS MANERAS DE USAR JSON.DUMP O FILE.WRITE (.DUMPS) PARA GUARDAR EL ARCHIVO JSON | LA DIFERENCIA VIENE DEL FILE_POINTER Y COMO SE PARAMETRIZA EL ARCHIVO
+    #HAY DOS MANERAS DE USAR JSON.DUMP O FILE.WRITE (.DUMPS) PARA GUARDAR EL ARCHIVO JSON | LA DIFERENCIA VIENE DEL FILE_POINTER Y COMO SE PARAMETRIZA EL ARCHIVO
+    #file.write(json.dumps(provincias, indent = 4, ensure_ascii= False))
         
