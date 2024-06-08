@@ -45,14 +45,12 @@ print(gato.name)
 # No se va a poder printear porque trata de acceder a un atributo privado de una clase. Para hacerlo, se debe usar un método de la clase. Osea, dentro del n° 25(29).
 #print(perro.__age)
 
-print("Locomoción")
+"""print("Locomoción")
 print(perro.locomocion)
 print(gato.locomocion)
 Animal.locomocion = "Terrestre"
 print(perro.locomocion)
-print(gato.locomocion)
-
-
+print(gato.locomocion)"""
 
 
 
