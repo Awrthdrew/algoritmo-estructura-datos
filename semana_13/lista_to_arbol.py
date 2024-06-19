@@ -4,14 +4,7 @@ class Persona:
         self.edad = edad
     def __str__(self):
         return (self.nombre + ' - ' + str(self.edad))
-    def __gt__(self, greater_than):
-        return self.edad > greater_than.edad
-    def __lt__(self, less_than):
-        return self.edad < less_than.edad
-    def __ge__(self, greater_equal_than):
-        return self.edad >= greater_equal_than.edad
-    def __le__(self, less_equal_than):
-        return self.edad <= less_equal_than.edad
+     
 
 class Nodo:
     def __init__(self, persona):

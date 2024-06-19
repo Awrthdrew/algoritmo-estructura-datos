@@ -30,7 +30,6 @@ raiz.right.left = Nodo(3)
 
 def inorden(nodo, nodos=[]):
     
-
     if(nodo.left):
         inorden(nodo.left, nodos)
 
@@ -40,6 +39,7 @@ def inorden(nodo, nodos=[]):
         inorden(nodo.right, nodos)
 
     return nodos
+
 
 nodos_desordenados = inorden(raiz)
 print('ARBOL EN ARRAY DESORDENADO: ')
@@ -111,12 +111,6 @@ def generarArbolOrdenado(array, nodo, indices=[]):
         nodo.left, nodo.right = None, None
     
     
-
-
-
-
-
-
 indice_raiz = int((len(nodos_ordenados)-1) / 2)
 raiz = nodos_ordenados[indice_raiz]
 generarArbolOrdenado(nodos_ordenados, raiz)
